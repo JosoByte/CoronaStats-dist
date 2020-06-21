@@ -1,0 +1,26 @@
+<div id='container' class="slider-bg-1" style="padding-left: 50%;">
+  <mat-slider #slider min="0" [max]=max step="1" value="1" (change)="onChangeSlider($event.value)"></mat-slider>
+  <p style="color: white; display: inline;"> Mínimo infectados: {{sliderValue}}</p>
+</div>
+
+<table class="center" mat-table [dataSource]="dataSource" style="background-color:rgba(0, 0, 0, 0.2)"  matSort matSortActive="infectados" matSortDirection="desc">
+    <ng-container matColumnDef="pais">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: white"> Pais </th>
+      <td mat-cell *matCellDef="let row" style="color: white"> {{row.pais}} </td>
+    </ng-container>
+    <ng-container matColumnDef="infectados">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: white"> Infectados </th>
+        <td mat-cell *matCellDef="let row" style="color: white"> {{row.infectados}} </td>
+      </ng-container>
+      <ng-container matColumnDef="muertes">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: white"> Muertes </th>
+        <td mat-cell *matCellDef="let row" style="color: white"> {{row.muertes}} </td>
+      </ng-container>
+      <ng-container matColumnDef="curados">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: white"> Curados </th>
+        <td mat-cell *matCellDef="let row" style="color: white"> {{row.curados}} </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="tableColumns" style="padding-left: 16em;"></tr>
+    <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+  </table>

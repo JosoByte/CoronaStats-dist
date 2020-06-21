@@ -1,0 +1,89 @@
+<body  style="background-image: url('./assets/img/spain.jpg'); background-repeat: no-repeat;  background-attachment: fixed; background-position: center; background-color: black; z-index: 1;">
+    <h1 class="center" style="color: white; padding-left: 0.5em;">ESTADISTICAS ESPAÑA</h1>
+    <div style="padding-left: 1em;">
+        <mat-grid-list  [cols]="breakpoint" rowHeight="30em" rowWidth="10px" (window:resize)="onResize($event)" (window.onload)="onResize($event)">
+            <mat-grid-tile>
+                <div style="background-color: #050505; padding: 2em; border-radius: 1em;  border: 5px solid #1a1a1a; width: 25em;">
+                    <mat-card-content>
+                        <img src="./assets/img/virus.png" width="80px" height="80px" style="padding-left: 39%">
+                        <h2 style="color: white;">Infectados actuales: {{spain.Confirmed}}</h2>
+                    </mat-card-content>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div style="background-color: #050505; padding: 2em; border-radius: 1em;  border: 5px solid #1a1a1a; width: 25em;">
+                <mat-card-content>
+                    <img src="./assets/img/skull.png" width="80px" height="80px" style="padding-left: 39%">
+                    <h2 style="color: white;">Muertos actuales: {{spain.Deaths}}</h2>
+                 </mat-card-content>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div style="background-color: #050505; padding: 2em; border-radius: 1em;  border: 5px solid #1a1a1a; width: 25em;">
+                <mat-card-content>
+                    <img src="./assets/img/curado.png" width="80px" height="80px" style="padding-left: 39%">
+                    <h2 style="color: white;">Curados actuales: {{spain.Recovered}}</h2>
+                 </mat-card-content>
+                 </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div style="background-color: #050505; padding: 2em; border-radius: 1em;  border: 5px solid #1a1a1a; width: 25em;">
+                <mat-card-content>
+                    <img src="./assets/img/j.png" width="80px" height="80px" style="padding-left: 39%">
+                    <h1 style="color: white;">Website by Jose Miguel Sanchez</h1>
+                    <h1 style="color: white;">Using Covid19Api</h1>
+                 </mat-card-content>
+                 </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div style="background-color: #050505; padding: 2em; border-radius: 1em;  border: 5px solid #1a1a1a; width: 25em;">
+                    <h2 style="color:white;">Estadisticas entre fechas</h2>
+                    <p style="color:white;">Fecha nº 1</p>
+                    <mat-form-field style="display: inline-block;">
+                        <mat-label>00/00/0000</mat-label>
+                        <input id="dateInput1" matInput [matDatepicker]="myDatepicker" ng-model="dt1" style="background-color: #F0F0F0;" (dateInput)="getDate1Data($event.value)"> 
+                        <mat-datepicker-toggle matSuffix [for]="myDatepicker" style="color: white;">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #myDatepicker></mat-datepicker>
+                      </mat-form-field>
+                    <p style="color:white;">Fecha nº 2</p>
+                    <mat-form-field>
+                        <mat-label>00/00/0000</mat-label>
+                        <input id="dateInput2" matInput [matDatepicker]="picker1" style="background-color: white;" (dateInput)="getDate2Data($event.value)">
+                        <mat-datepicker-toggle matSuffix [for]="picker1" style="color: white;"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                      </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile style="visibility: hidden">
+
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <div  class="center2" >
+        <table class="center2" mat-table [dataSource]="dataSource" style="background-color:rgba(0, 0, 0, 0.2)"  matSort >
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: white"> Fecha </th>
+                <td mat-cell *matCellDef="let row" style="color: white" style="width: 9em; color: white;"> {{row.fecha}} </td>
+            </ng-container>
+            <ng-container matColumnDef="infectados">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: white"> Infectados </th>
+                <td mat-cell *matCellDef="let row" style="color: white"> {{row.infectados}} </td>
+              </ng-container>
+              <ng-container matColumnDef="muertes">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: white"> Muertes </th>
+                <td mat-cell *matCellDef="let row" style="color: white"> {{row.muertes}} </td>
+              </ng-container>
+              <ng-container matColumnDef="curados">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: white"> Curados </th>
+                <td mat-cell *matCellDef="let row" style="color: white"> {{row.curados}} </td>
+              </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="tableColumns" style="padding-left: 16em;"></tr>
+            <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+          </table>
+    </div>
+    </body>
+    <div>
+
+    </div>

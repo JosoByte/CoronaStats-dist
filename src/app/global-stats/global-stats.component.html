@@ -1,0 +1,41 @@
+<h1 class="center" style="color: white; padding-left: 0.5em;">ESTADISTICAS GLOBALES</h1>
+<div style="padding-left: 1em;">
+    <mat-grid-list  [cols]="breakpoint" rowHeight="30em" rowWidth="10px" (window:resize)="onResize($event)" (window:load)="onLoadBody($event)">
+        <mat-grid-tile>
+            <div style="background-color: #050505; padding: 2em; border-radius: 1em;  border: 5px solid #1a1a1a; width: 25em;">
+                <mat-card-content>
+                    <img src="./assets/img/virus.png" width="80px" height="80px" style="padding-left: 39%">
+                    <h2 style="color: white;">Infectados hoy: {{global.Global.NewConfirmed}}</h2>
+                    <h2 style="color: white;">Total infectados: {{global.Global.TotalConfirmed}}</h2>
+                </mat-card-content>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div style="background-color: #050505; padding: 2em; border-radius: 1em;  border: 5px solid #1a1a1a; width: 25em;">
+            <mat-card-content>
+                <img src="./assets/img/skull.png" width="80px" height="80px" style="padding-left: 39%">
+                <h2 style="color: white;">Muertes hoy: {{global.Global.NewDeaths}}</h2>
+                <h2 style="color: white;">Total muertes: {{global.Global.TotalDeaths}}</h2>
+             </mat-card-content>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div style="background-color: #050505; padding: 2em; border-radius: 1em;  border: 5px solid #1a1a1a; width: 25em;">
+            <mat-card-content>
+                <img src="./assets/img/curado.png" width="80px" height="80px" style="padding-left: 39%">
+                <h1 style="color: white;">Curados hoy: {{global.Global.NewRecovered}}</h1>
+                <h1 style="color: white;">Total curados: {{global.Global.TotalRecovered}}</h1>
+             </mat-card-content>
+             </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div style="background-color: #050505; padding: 2em; border-radius: 1em;  border: 5px solid #1a1a1a; width: 25em;">
+            <mat-card-content>
+                <img src="./assets/img/j.png" width="80px" height="80px" style="padding-left: 39%">
+                <h1 style="color: white;">Website by Jose Miguel Sanchez</h1>
+                <h1 style="color: white;">Using Covid19Api</h1>
+             </mat-card-content>
+             </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

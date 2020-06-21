@@ -1,0 +1,16 @@
+.center{
+    margin-left: 42%;
+}
+.slider-bg-1 {
+    background-color: #161616;
+  }
+@media only screen and (max-width: 800px) {
+    .center{
+        margin-left: 22%;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .center{
+        margin-left: 1%;
+    }
+}
